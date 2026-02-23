@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- font awsome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- tailwind link  -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- daisy ui link  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -18,66 +17,357 @@
 </head>
 
 <body class="w-10/15 lg:w-9/15 mx-auto">
-
     <!-- first part  -->
-
-    <div class=" pt-9">
-        <h1 class="text-[#002C5C] font-bold text-3xl ">Job Application Tracker</h1>
+    <div class="pt-9">
+        <h1 class="text-[#002C5C] font-bold text-3xl">Job Application Tracker</h1>
     </div>
-    <section class=" pt-9 grid grid-cols-1 lg:grid-cols-3 gap-7 text-[25px] border-b-2 border-gray-300 pb-10">
+    <section class="pt-9 grid grid-cols-1 lg:grid-cols-3 gap-7 text-[25px] border-b-2 border-gray-300 pb-10">
         <div
-            class="card-1 w-70 font-semibold border-[2px] border-[oklch(48.8%_0.243_264.376)] bg-gray-200 px-5 rounded-[15px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl ">
-            <p>Total</p>
-            <p class="font-extrabold text-[#002C5C]">0</p>
+            class="card-1 w-70 font-semibold border-[2px] border-[oklch(48.8%_0.243_264.376)] bg-gray-200 px-5 rounded-[15px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <p id="">Total</p>
+            <p id="totalCount" class="font-extrabold text-[#002C5C]">0</p>
         </div>
         <div
-            class="card-1 w-70 font-semibold border-[2px] border-[oklch(48.8%_0.243_264.376)] bg-gray-200 px-5 rounded-[15px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl ">
+            class="card-1 w-70 font-semibold border-[2px] border-[oklch(48.8%_0.243_264.376)] bg-gray-200 px-5 rounded-[15px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
             <p>Interview</p>
-            <p class="font-extrabold text-[#10B981]">0</p>
+            <p id="interViewCount" class="interviewed font-extrabold text-[#10B981]">0</p>
         </div>
         <div
-            class="card-1 w-70 font-semibold border-[2px] border-[oklch(48.8%_0.243_264.376)] bg-gray-200 px-5 rounded-[15px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl ">
+            class="card-1 w-70 font-semibold border-[2px] border-[oklch(48.8%_0.243_264.376)] bg-gray-200 px-5 rounded-[15px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
             <p>Rejected</p>
-            <p class="font-extrabold text-[#EF4444]">0</p>
+            <p id="rejectedCount" class="rejected font-extrabold text-[#EF4444]">0</p>
         </div>
-
     </section>
     <section class="flex justify-between pt-7">
         <h1 class="font-bold text-[#002C5C] text-[18px]">Available Jobs</h1>
         <p>8 jobs</p>
     </section>
+
     <section>
         <!-- buttons -->
-
-        <div class=" flex gap-2 pt-6">
-            <button class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">All</button>
-            <button class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">Interview</button>
-            <button class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">Rejected</button>
+        <div class="flex gap-2 pt-6">
+            <button
+                class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
+                All
+            </button>
+            <button
+                class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
+                Interview
+            </button>
+            <button
+                class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
+                Rejected
+            </button>
         </div>
     </section>
 
-
-    <section class="border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10 ">
-
-        <!-- card-1 -->
+    <!-- card-1 -->
+    <section
+        class=" card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
         <div class="">
-            <h1 class="text-[#002C5C] font-bold">Mobile First Corp</h1>
+            <h1 class="text-[#002C5C] font-bold flex justify-between">Mobile First Corp <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
             <p>React Native Developer</p>
             <p>Remote • Full-time • $130,000 - $175,000</p>
-            
-            <p class="bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">NOT APPLIED</p>  
-            <p class="bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">INTERVIEW</p> 
-            <p class="bg-error border border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">REJECTED</p>   
-            <br>
-            <p>Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>  
-            <br>
-            <br> 
-            <button class="btn btn-outline btn-accent">INTERVIEW</button>
-            <button class="btn btn-outline btn-error">REJECTED</button>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class="interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Create stunning web experiences for high-profile clients. Must have
+                portfolio and experience with modern web design trends.
+            </p>
+            <br />
+
+            <div class=" flex gap-4">
+                <button id="" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
         </div>
     </section>
 
-    <script src="js/first-card.js"></script>
+    <!-- card--2 -->
+    <section
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
+        <div class="">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">CloudNest Technologies <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>Frontend Developer</p>
+            <p>Remote • Full-time • $100,000 - $102,000</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class=" interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Develop responsive web applications using React and Tailwind CSS. Collaborate with UI/UX teams.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- card--3 -->
+    <section
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        
+        <div class="">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">DataBridge Solutions <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>Backend Developer (Node.js)</p>
+            <p>Remote $40/hour</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class="interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Build REST APIs and manage databases using Node.js and MongoDB for scalable applications.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- card--4 -->
+    <section
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
+        <div class="">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">NexaSoft Ltd.<i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>Full Stack Developer</p>
+            <p>৳80,000 - ৳120,000</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class=" interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Work on MERN stack projects and maintain both frontend and backend systems.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- card--5 -->
+    <section
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
+        <div class="">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">TechNova Inc. <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>UI/UX Designer</p>
+            <p>Remote • Full-time • $130,000 - $175,000</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class=" interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Design modern user interfaces and improve user experience for SaaS platforms.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- card--6 -->
+    <section
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
+        <div class="">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">ByteWave Systems <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>Junior Java Developer</p>
+            <p>৳45,000 – ৳65,000</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class="interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Develop and maintain enterprise applications using Java and Spring Boot.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- card--7 -->
+    <section
+        class="border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
+        <div class="card">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">AI Fusion Labs <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>Machine Learning Engineer</p>
+            <p>$150,000 - $190,000</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class="interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Build AI models and deploy machine learning pipelines for real-world applications.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- card--8 -->
+    <section
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        <!-- card- -->
+        <div class="">
+            <h1 class="text-[#002C5C] font-bold flex justify-between">SecureNet Global <i
+                    class="fa-solid fa-xmark cursor-pointer"></i> </h1>
+            <p>Cybersecurity Analyst</p>
+            <p>৳90,000 - ৳140,000</p>
+
+            <p id="notApplied"
+                class="not-applied bg-blue-200 text-[#002C5C] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 border border-blue-800 rounded-[5px]">
+                NOT APPLIED
+            </p>
+            <p id="interviewHidden"
+                class="interview-status hidden  bg-accent text-teal-50 border border-[oklch(48.8%_0.243_264.376)] text-[13px] font-semibold w-28 text-center py-1 px-2 mt-6 rounded-[5px]">
+                INTERVIEW
+            </p>
+            <p id="rejectedHidden"
+                class="rejected-status hidden bg-error border-[oklch(48.8%_0.243_264.376)] text-gray-50 text-[13px] w-28 text-center py-1 px-2 font-semibold mt-6 border rounded-[5px]">
+                REJECTED
+            </p>
+
+            <br />
+            <p>
+                Monitor security systems, identify vulnerabilities, and protect company infrastructure from cyber
+                threats.
+            </p>
+            <br />
+
+            <div class="flex gap-4">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                    INTERVIEW
+                </button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/cards.js"></script>
 </body>
 
 </html>
