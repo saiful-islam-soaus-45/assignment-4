@@ -65,3 +65,29 @@ cards.forEach(card => {
     });
 
 });
+
+function handleStatus(btn, status){
+    const card = btn.closest('.card');
+    card.dataset.status = status;
+}
+
+
+function hanldeFilter(type, btn){
+    cards.forEach(card => {
+        if(type === card.dataset.status || type === 'all'){
+            card.classList.remove('hidden');
+        }else{
+            card.classList.add('hidden');
+        }
+    });
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(button => {
+        button.classList.remove('bg-blue-800', 'text-white');
+        button.classList.add('bg-gray-300');
+    });
+
+    btn.classList.remove('bg-gray-300');
+    btn.classList.add('bg-blue-800', 'text-white');
+}

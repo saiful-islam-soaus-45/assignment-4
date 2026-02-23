@@ -14,6 +14,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <title>Job Application Tracker</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="w-10/15 lg:w-9/15 mx-auto">
@@ -46,16 +51,16 @@
     <section>
         <!-- buttons -->
         <div class="flex gap-2 pt-6">
-            <button
-                class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
+            <button onclick="hanldeFilter('all', this)"
+                class="filter-btn btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-blue-800 text-white focus:bg-blue-800 focus:text-white">
                 All
             </button>
-            <button
-                class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
+            <button onclick="hanldeFilter('interview', this)"
+                class="filter-btn btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
                 Interview
             </button>
-            <button
-                class="btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
+            <button onclick="hanldeFilter('rejected', this)"
+                class="filter-btn btn w-[90px] h-8 border border-[oklch(48.8%_0.243_264.376)] bg-gray-300 focus:bg-blue-800 focus:text-white">
                 Rejected
             </button>
         </div>
@@ -63,7 +68,7 @@
 
     <!-- card-1 -->
     <section
-        class=" card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
         <!-- card- -->
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">Mobile First Corp <i
@@ -92,18 +97,18 @@
             <br />
 
             <div class=" flex gap-4">
-                <button id="" class="interview-btn btn btn-outline btn-accent">
+                <button id="" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--2 -->
     <section
-        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
-        <!-- card- -->
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
+        
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">CloudNest Technologies <i
                     class="fa-solid fa-xmark cursor-pointer"></i> </h1>
@@ -130,17 +135,17 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--3 -->
     <section
-        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
         
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">DataBridge Solutions <i
@@ -168,17 +173,17 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--4 -->
     <section
-        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
         <!-- card- -->
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">NexaSoft Ltd.<i
@@ -206,17 +211,17 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--5 -->
     <section
-        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
         <!-- card- -->
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">TechNova Inc. <i
@@ -244,17 +249,17 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--6 -->
     <section
-        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
         <!-- card- -->
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">ByteWave Systems <i
@@ -282,17 +287,17 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--7 -->
     <section
-        class="border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10" data-status="all">
         <!-- card- -->
         <div class="card">
             <h1 class="text-[#002C5C] font-bold flex justify-between">AI Fusion Labs <i
@@ -320,17 +325,17 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
 
     <!-- card--8 -->
     <section
-        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10">
+        class="card border border-[oklch(48.8%_0.243_264.376)] mt-9 px-5 py-7 bg-gray-200 rounded-[10px] transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl pb-7 mb-10"  data-status="all">
         <!-- card- -->
         <div class="">
             <h1 class="text-[#002C5C] font-bold flex justify-between">SecureNet Global <i
@@ -359,10 +364,10 @@
             <br />
 
             <div class="flex gap-4">
-                <button id="interview" class="interview-btn btn btn-outline btn-accent">
+                <button id="interview" class="interview-btn btn btn-outline btn-accent" onclick="handleStatus(this, 'interview')">
                     INTERVIEW
                 </button>
-                <button id="rejected" class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+                <button id="rejected" class="rejected-btn btn btn-outline btn-error" onclick="handleStatus(this, 'rejected')">REJECTED</button>
             </div>
         </div>
     </section>
