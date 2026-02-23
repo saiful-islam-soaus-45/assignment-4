@@ -90,4 +90,62 @@ function hanldeFilter(type, btn){
 
     btn.classList.remove('bg-gray-300');
     btn.classList.add('bg-blue-800', 'text-white');
+    updateAvailableCount(type);
 }
+
+
+const availableCount = document.getElementById("availableCount");
+
+function updateAvailableCount(type){
+    const total = cards.length;
+    let visibleCount = 0;
+    cards.forEach(card => {
+        if(type === 'all' || card.dataset.status === type){
+            visibleCount++;
+        }
+    });
+
+    if(type === 'all'){
+        availableCount.innerText = total + " Jobs";
+    }else{
+        availableCount.innerText = visibleCount + " of " + total + " Jobs ";
+    }
+}
+updateAvailableCount('all');
+
+
+document.addEventListener("click", function (e) {
+
+    if (e.target.classList.contains("fa-xmark")) {
+
+        const card = e.target.closest(".card");
+
+        const notApplied = card.querySelector(".not-applied");
+        const interviewStatus = card.querySelector(".interview-status");
+        const rejectedStatus = card.querySelector(".rejected-status");
+
+        
+        if (card.classList.contains("interviewed")) {
+            interviewCount--;
+            interviewCountElement.innerText = interviewCount;
+            card.classList.remove("interviewed");
+        }
+
+        
+        if (card.classList.contains("rejected")) {
+            rejectedCount--;
+            rejectedCountElement.innerText = rejectedCount;
+            card.classList.remove("rejected");
+        }
+
+       
+        card.dataset.status = "all";
+        interviewStatus.classList.add("hidden");
+        rejectedStatus.classList.add("hidden");
+        notApplied.classList.remove("hidden");
+
+        const activeBtn = document.querySelector(".filter-btn.bg-blue-800");
+        const type = activeBtn ? activeBtn.textContent.trim().toLowerCase() : "all";
+        updateAvailableCount(type);
+    }
+});
