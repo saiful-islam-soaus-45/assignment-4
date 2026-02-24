@@ -96,21 +96,48 @@ function hanldeFilter(type, btn){
 
 const availableCount = document.getElementById("availableCount");
 
+// function updateAvailableCount(type){
+//     const total = cards.length;
+//     let visibleCount = 0;
+//     cards.forEach(card => {
+//         if(type === 'all' || card.dataset.status === type){
+//             visibleCount++;
+//         }
+//     });
+
+//     if(type === 'all'){
+//         availableCount.innerText = total + " Jobs";
+//     }else{
+//         availableCount.innerText = visibleCount + " of " + total + " Jobs ";
+//     }
+// }
+
 function updateAvailableCount(type){
     const total = cards.length;
     let visibleCount = 0;
+
     cards.forEach(card => {
-        if(type === 'all' || card.dataset.status === type){
+        if (!card.classList.contains("hidden")) {
             visibleCount++;
         }
     });
 
+    const emptyState = document.getElementById("emptyState");
+
     if(type === 'all'){
         availableCount.innerText = total + " Jobs";
     }else{
-        availableCount.innerText = visibleCount + " of " + total + " Jobs ";
+        availableCount.innerText = visibleCount + " of " + total + " Jobs";
+    }
+
+    // 🔥 Empty state show/hide
+    if(visibleCount === 0){
+        emptyState.classList.remove("hidden");
+    }else{
+        emptyState.classList.add("hidden");
     }
 }
+
 updateAvailableCount('all');
 
 
